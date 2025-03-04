@@ -52,13 +52,13 @@ defmodule ShopWeb.Endpoint do
   plug :check_promo_code, code: "b624e048-6ebf-42f5-a30b-4d7b30487e53"
   plug ShopWeb.Router
 
-  def check_promo_code(%Plug.Conn{:params => %{"promo" => "secret-code"}} = conn, opts) do
+  defp check_promo_code(%Plug.Conn{:params => %{"promo" => "secret-code"}} = conn, opts) do
     IO.inspect(opts)
     assign(conn, :promo, true)
   end
 
   # Default case
-  def check_promo_code(conn, opts) do
+  defp check_promo_code(conn, opts) do
     IO.inspect(opts)
     assign(conn, :promo, false)
   end
