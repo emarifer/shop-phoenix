@@ -4,7 +4,8 @@ defmodule ShopWeb.Router do
   alias ShopWeb.Plugs
 
   pipeline :browser do
-    plug :accepts, ["html"]
+    # The pipeline can now accept both HTML and JSON
+    plug :accepts, ["html", "json"]
     plug :fetch_session
     plug :fetch_live_flash
     plug :put_root_layout, html: {ShopWeb.Layouts, :root}
@@ -17,17 +18,45 @@ defmodule ShopWeb.Router do
     plug :accepts, ["json"]
   end
 
+  # pipeline :auth do
+  #   plug Plugs.EnsureAuthenticated
+  # end
+
   scope "/", ShopWeb do
     pipe_through :browser
 
     get "/", PageController, :home
+    # This route, along with the GET verb, will assign
+    # the `ProductController` controller with the `index` action,
+    # which can render both HTML and JSON.
+    # The special Phoenix query parameter (`?_format=json`) allows us
+    # to differentiate between the two requests.
+    # But the ideal is to have a separate scope with
+    # separate controllers and separate actions.
     get "/products", ProductController, :index
     get "/products/:id", ProductController, :show
+    get "/random", RandomController, :random
+
+    # Resources:
+    # resources "/products", ProductController, only: [:index, :show]
+    # resources "/products", ProductController, except: [:delete]
+
+    # Nested resources:
+    # resources "/users", UserController do
+    #   # resources "/posts", PostController
+    #   get "/posts", PostController, :index
+    # end
   end
 
   # Other scopes may use custom stacks.
   # scope "/api", ShopWeb do
   #   pipe_through :api
+  # end
+
+  # scope "/dashboard", ShopWeb do
+  #   pipe_through [:browser, :auth]
+
+  #   get "/", DashboardController, :index
   # end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

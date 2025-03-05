@@ -5,6 +5,10 @@ defmodule ShopWeb.ProductController do
     # dbg(conn)
     # dbg(params)
     # text(conn, "Hello, Enrique 😀!! - #{Mix.env()}")
+
+    # Verified Routes: provides compile-time checks of
+    # router paths against your router by using the ~p sigil
+    # conn |> redirect(to: ~p"/wrong")
     render(conn, :index)
   end
 

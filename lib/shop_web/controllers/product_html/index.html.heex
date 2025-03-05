@@ -3,3 +3,9 @@
 </h1>
 
 <p :if={@promo}>You have a promotional code!</p>
+
+<a class="text-sky-500 font-extralight" href={~p"/?#{[console: "xbox", promo: "secret-code"]}"}>
+  Go back to Home Page  &larr;
+</a>
+
+<p>This is the full URL: {url(~p"/products")}</p>
