@@ -4,8 +4,23 @@
 
 <p :if={@promo}>You have a promotional code!</p>
 
+<%!-- compact form of `for` loops --%>
+<ul class="list-disc my-10">
+  <.product_list_item :for={product <- @products} name={product.name} id={product.id} />
+</ul>
+
 <a class="text-sky-500 font-extralight" href={~p"/?#{[console: "xbox", promo: "secret-code"]}"}>
   Go back to Home Page  &larr;
 </a>
 
-<p>This is the full URL: {url(~p"/products")}</p>
+<%!-- non-compact form of `for` loops: --%>
+<%!-- <ul class="list-disc my-10">
+  <%= for product <- @products do %>
+    <li class="text-lime-600 italic">
+      <a href={~p"/products/" <> product.id}>{product.name}</a>
+    </li>
+  <% end %>
+</ul> --%>
+
+<%!-- Obtaining a full URL from the path: --%>
+<%!-- <p>This is the full URL: {url(~p"/products")}</p> --%>

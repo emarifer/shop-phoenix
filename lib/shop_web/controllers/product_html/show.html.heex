@@ -1,2 +1,23 @@
-<h1 class="text-xl font-extralight text-teal-700">This is the product page where ID = {@id}</h1>
 <%!-- assign.id --%>
+
+<%!-- <%= if !@product do %>
+  <h1 class="text-xl font-extralight text-red-500">
+    There is no product with that ID!
+  </h1>
+<% else %>
+  <h1 class="text-xl font-extralight text-teal-700">
+    This is the page for the product
+    <span class="font-normal italic text-amber-700">{@product.name}</span>
+    whose ID is <span class="font-normal text-amber-700">{@product.id}</span>
+  </h1>
+<% end %> --%>
+
+<%!-- Function component:
+Function components allow for a more compact template style --%>
+<.product :if={@product} name={@product.name} id={@product.id} />
+
+<.no_product :if={!@product} />
+
+<a class="text-sky-500 font-extralight block mt-10" href={~p"/products"}>
+  Go back to products listing page page &larr;
+</a>
