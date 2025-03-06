@@ -9,9 +9,17 @@
   <.product_list_item :for={product <- @products} name={product.name} id={product.id} />
 </ul>
 
-<a class="text-sky-500 font-extralight" href={~p"/?#{[console: "xbox", promo: "secret-code"]}"}>
-  Go back to Home Page  &larr;
-</a>
+<%!-- Using a modified CoreComponents to accept styling --%>
+<.back
+  navigate={~p"/?#{[console: "xbox", promo: "secret-code"]}"}
+  class="mt-6 font-light text-zinc-400 hover:text-teal-400"
+>
+  Back to Home Page
+</.back>
+
+<%!-- <a class="text-sky-500 font-extralight" href={~p"/?#{[console: "xbox", promo: "secret-code"]}"}>
+  Go back to Home Page &larr;
+</a> --%>
 
 <%!-- non-compact form of `for` loops: --%>
 <%!-- <ul class="list-disc my-10">

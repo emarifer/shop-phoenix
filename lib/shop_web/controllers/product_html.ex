@@ -1,5 +1,6 @@
 defmodule ShopWeb.ProductHTML do
   use ShopWeb, :html
+  # ↑↑↑ With this macro the CoreComponents are also imported ↑↑↑
 
   # Definition of online template:
   # def index(assigns) do
@@ -38,7 +39,7 @@ defmodule ShopWeb.ProductHTML do
 
   def product_list_item(assigns) do
     ~H"""
-    <li class="text-accent italic hover:text-base-content">
+    <li class="text-accent italic hover:text-base-content w-fit">
       <a href={~p"/products/" <> @id}>{@name}</a>
     </li>
     """

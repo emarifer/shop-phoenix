@@ -18,6 +18,11 @@ Function components allow for a more compact template style --%>
 
 <.no_product :if={!@product} />
 
-<a class="text-sky-500 font-extralight block mt-10" href={~p"/products"}>
-  Go back to products listing page page &larr;
-</a>
+<%!-- Using a modified CoreComponents to accept styling --%>
+<.back navigate={~p"/products"} class="mt-6 font-light text-zinc-400 hover:text-teal-400">
+  Back to products listing page
+</.back>
+
+<%!-- <a class="text-sky-500 font-extralight block mt-10" href={~p"/products"}>
+  Go back to products listing page &larr;
+</a> --%>
