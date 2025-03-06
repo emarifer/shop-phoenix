@@ -21,7 +21,7 @@ defmodule ShopWeb.ProductHTML do
   # Function component
   def product(assigns) do
     ~H"""
-    <h1 class="text-xl font-extralight text-teal-700">
+    <h1 class="text-xl font-extralight text-accent">
       This is the page for the product <span class="font-normal italic text-amber-700">{@name}</span>
       <%!-- This {assigns.name} is equivalent to this {@name} --%> whose ID is
       <span class="font-normal text-amber-700">{@id}</span>
@@ -38,7 +38,7 @@ defmodule ShopWeb.ProductHTML do
 
   def product_list_item(assigns) do
     ~H"""
-    <li class="text-lime-600 italic">
+    <li class="text-accent italic hover:text-base-content">
       <a href={~p"/products/" <> @id}>{@name}</a>
     </li>
     """
