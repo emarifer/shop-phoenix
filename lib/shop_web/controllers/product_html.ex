@@ -2,6 +2,8 @@ defmodule ShopWeb.ProductHTML do
   use ShopWeb, :html
   # ↑↑↑ With this macro the CoreComponents are also imported ↑↑↑
 
+  alias Shop.Product
+
   # Definition of online template:
   # def index(assigns) do
   #   ~H"""
@@ -14,18 +16,20 @@ defmodule ShopWeb.ProductHTML do
   # Defining the props (assigns) that the function component will use.
   # Attribute definitions in function components must
   # be above the components that will use them:
-  attr :name, :string, required: true
-  attr :id, :string, required: true
+  # attr :name, :string, required: true
+  # attr :id, :string, required: true
   # attr :name, :string, default: "something" <= default value in case
   # we pass nothing
+
+  attr :product, Product, required: true
 
   # Function component
   def product(assigns) do
     ~H"""
+    <p>-ID: {@product.id}</p>
     <h1 class="text-xl font-extralight text-accent">
-      This is the page for the product <span class="font-normal italic text-amber-700">{@name}</span>
-      <%!-- This {assigns.name} is equivalent to this {@name} --%> whose ID is
-      <span class="font-normal text-amber-700">{@id}</span>
+      This is the page for the product - Game:
+      <span class="font-normal italic text-amber-700">{@product.name}</span>
     </h1>
     """
   end
@@ -33,14 +37,14 @@ defmodule ShopWeb.ProductHTML do
   def no_product(assigns),
     do: ~H"""
     <h1 class="text-xl font-extralight text-red-500">
-      There is no product with that ID!
+      There is no product with that Slug!
     </h1>
     """
 
   def product_list_item(assigns) do
     ~H"""
     <li class="text-accent italic hover:text-base-content w-fit">
-      <a href={~p"/products/" <> @id}>{@name}</a>
+      <.link href={~p"/products/#{@product.slug}"}>{@product.name}</.link>
     </li>
     """
   end

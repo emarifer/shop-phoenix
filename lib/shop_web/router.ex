@@ -34,7 +34,7 @@ defmodule ShopWeb.Router do
     # But the ideal is to have a separate scope with
     # separate controllers and separate actions.
     get "/products", ProductController, :index
-    get "/products/:id", ProductController, :show
+    get "/products/:slug", ProductController, :show
     get "/random", RandomController, :random
 
     # Resources:

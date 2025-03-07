@@ -74,6 +74,7 @@ module.exports = {
     })
   ],
   daisyui: {
+    logs: false,
     themes: ["dark"]
   }
 }

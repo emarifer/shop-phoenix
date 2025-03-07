@@ -554,16 +554,15 @@ defmodule ShopWeb.CoreComponents do
 
   attr :navigate, :any, required: true
   # Modified CoreComponents to accept styling
-  attr :class, :string, default: nil
+  attr :class, :string,
+    default: "text-sm font-semibold leading-6 text-zinc-900 hover:text-zinc-700"
+
   slot :inner_block, required: true
 
   def back(assigns) do
     ~H"""
-    <div class={["mt-16", @class]}>
-      <.link
-        navigate={@navigate}
-        class={["text-sm font-semibold leading-6 text-zinc-900 hover:text-zinc-700", @class]}
-      >
+    <div class="mt-16">
+      <.link navigate={@navigate} class={@class}>
         <.icon name="hero-arrow-left-solid" class="h-3 w-3" />
         {render_slot(@inner_block)}
       </.link>

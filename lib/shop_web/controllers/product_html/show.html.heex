@@ -14,15 +14,14 @@
 
 <%!-- Function component:
 Function components allow for a more compact template style --%>
-<.product :if={@product} name={@product.name} id={@product.id} />
-
 <.no_product :if={!@product} />
 
+<.product :if={@product} product={@product} />
+
 <%!-- Using a modified CoreComponents to accept styling --%>
-<.back navigate={~p"/products"} class="mt-6 font-light text-zinc-400 hover:text-teal-400">
+<.back
+  navigate={~p"/products"}
+  class="font-extralight text-slate-400 hover:text-teal-300 ease-in duration-300"
+>
   Back to products listing page
 </.back>
-
-<%!-- <a class="text-sky-500 font-extralight block mt-10" href={~p"/products"}>
-  Go back to products listing page &larr;
-</a> --%>
