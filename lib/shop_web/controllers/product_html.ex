@@ -2,7 +2,7 @@ defmodule ShopWeb.ProductHTML do
   use ShopWeb, :html
   # ↑↑↑ With this macro the CoreComponents are also imported ↑↑↑
 
-  alias Shop.Product
+  alias Shop.Products.Product
 
   # Definition of online template:
   # def index(assigns) do

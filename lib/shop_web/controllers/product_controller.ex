@@ -1,7 +1,7 @@
 defmodule ShopWeb.ProductController do
   use ShopWeb, :controller
 
-  alias Shop.{Repo, Product}
+  alias Shop.Products
 
   # Data mock
   # @products [
@@ -19,7 +19,7 @@ defmodule ShopWeb.ProductController do
     # router paths against your router by using the ~p sigil
     # conn |> redirect(to: ~p"/wrong")
 
-    products = Repo.all(Product)
+    products = Products.list_products()
 
     conn
     |> assign(:products, products)
@@ -33,7 +33,7 @@ defmodule ShopWeb.ProductController do
     # product = Enum.find(@products, fn p -> p.id == id end)
     # product = @products |> Enum.find(&(&1.id == id))
 
-    product = Repo.get_by(Product, slug: slug)
+    product = Products.get_product_by_slug(slug)
 
     conn
     |> assign(:product, product)
