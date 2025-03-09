@@ -53,6 +53,11 @@ defmodule ShopWeb.Router do
     pipe_through :api
 
     get "/products", ApiController, :index
+
+    # `new` and `edit` refer to the rendering of forms for
+    # creating and editing a resource, so this does
+    # ↓↓↓ not make sense in a web API ↓↓↓
+    resources "/promotions", PromotionController, except: [:new, :edit]
   end
 
   # scope "/dashboard", ShopWeb do
@@ -78,3 +83,12 @@ defmodule ShopWeb.Router do
     end
   end
 end
+
+# API routes:
+# mix phx.routes | grep promotions ==>
+#   GET     /api/promotions       ShopWeb.PromotionController :index
+#   GET     /api/promotions/:id   ShopWeb.PromotionController :show
+#   POST    /api/promotions       ShopWeb.PromotionController :create
+#   PATCH   /api/promotions/:id   ShopWeb.PromotionController :update
+#   PUT     /api/promotions/:id   ShopWeb.PromotionController :update
+#   DELETE  /api/promotions/:id   ShopWeb.PromotionController :delete
