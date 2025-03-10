@@ -19,10 +19,10 @@ services:
 # (pass: blork_erlang)
 
 # Listing databases in PostgreSQL: \l or \l+
-# Connect to the "real_deal_api_dev" database as user "backend_stuff":
-# \c real_deal_api_dev
+# Connect to the "shop_dev" database as user "backend_stuff":
+# \c shop_dev
 # [or directly by typing in the terminal:
-# docker exec -it bs_db_local psql -U backend_stuff real_deal_api_dev ]
+# docker exec -it bs_db_local psql -U backend_stuff shop_dev ]
 # [https://stackoverflow.com/questions/10335561/use-database-name-command-in-postgresql]
 # Showing tables from PostgreSQL: \dt
 # PostgreSQL DESCRIBE TABLE using psql: \d table_name (\d users)

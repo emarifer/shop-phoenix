@@ -92,3 +92,8 @@ end
 #   PATCH   /api/promotions/:id   ShopWeb.PromotionController :update
 #   PUT     /api/promotions/:id   ShopWeb.PromotionController :update
 #   DELETE  /api/promotions/:id   ShopWeb.PromotionController :delete
+
+# # Discard all changes:
+# To remove untracked files & directories
+# git clean -fd
+# git checkout .
