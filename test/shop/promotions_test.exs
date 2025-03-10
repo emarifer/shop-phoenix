@@ -1,5 +1,10 @@
 defmodule Shop.PromotionsTest do
   use Shop.DataCase
+  # use Shop.DataCase, async: true
+  # which means that this test case will be run in parallel
+  # with other test cases. While individual tests within the case
+  # still run serially, this can greatly increase overall test speeds.
+  # Only in Postgres.
 
   alias Shop.Promotions
 
@@ -36,7 +41,9 @@ defmodule Shop.PromotionsTest do
       promotion = promotion_fixture()
       update_attrs = %{code: "some updated code", name: "some updated name"}
 
-      assert {:ok, %Promotion{} = promotion} = Promotions.update_promotion(promotion, update_attrs)
+      assert {:ok, %Promotion{} = promotion} =
+               Promotions.update_promotion(promotion, update_attrs)
+
       assert promotion.code == "some updated code"
       assert promotion.name == "some updated name"
     end

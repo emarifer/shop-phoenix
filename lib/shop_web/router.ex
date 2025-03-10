@@ -94,6 +94,16 @@ end
 #   DELETE  /api/promotions/:id   ShopWeb.PromotionController :delete
 
 # # Discard all changes:
+# https://stackoverflow.com/questions/1146973/how-do-i-revert-all-local-changes-in-git-managed-project-to-previous-state
+# https://gist.github.com/khoa-le/03c4de439125f969e03d
 # To remove untracked files & directories
 # git clean -fd
 # git checkout .
+# https://hexdocs.pm/ecto_sql/Mix.Tasks.Ecto.Rollback.html
+# mix ecto.rollback
+# mix ecto.rollback -r Custom.Repo
+
+# mix ecto.rollback -n 3
+# mix ecto.rollback --step 3
+
+# mix ecto.rollback --to 20080906120000

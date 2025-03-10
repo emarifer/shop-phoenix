@@ -1,5 +1,10 @@
 defmodule ShopWeb.PromotionControllerTest do
   use ShopWeb.ConnCase
+  # use ShopWeb.ConnCase, async: true
+  # which means that this test case will be run in parallel
+  # with other test cases. While individual tests within the case
+  # still run serially, this can greatly increase overall test speeds.
+  # Only in Postgres.
 
   import Shop.PromotionsFixtures
 
@@ -49,7 +54,10 @@ defmodule ShopWeb.PromotionControllerTest do
   describe "update promotion" do
     setup [:create_promotion]
 
-    test "renders promotion when data is valid", %{conn: conn, promotion: %Promotion{id: id} = promotion} do
+    test "renders promotion when data is valid", %{
+      conn: conn,
+      promotion: %Promotion{id: id} = promotion
+    } do
       conn = put(conn, ~p"/api/promotions/#{promotion}", promotion: @update_attrs)
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
