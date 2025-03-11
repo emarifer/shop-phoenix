@@ -14,6 +14,10 @@
   <%!-- Verified Routes: provides compile-time checks of router paths against your router by using the ~p sigil --%>
   <a class="text-sky-400 font-extralight" href={~p"/products"}>See all products</a>
 
+  <div class="text-lime-300 font-extralight">
+    <.link navigate={~p"/products-live"}>See all products in LiveView mode</.link>
+  </div>
+
   <p class="mt-12">Select your favorite console:</p>
 
   <form class="flex gap-4 mt-4">

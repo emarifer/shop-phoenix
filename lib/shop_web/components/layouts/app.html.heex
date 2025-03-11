@@ -21,7 +21,12 @@
     </div>
   </div>
 </header>
-<main class="px-4 py-20 sm:px-6 lg:px-8">
+<%!-- Add view transitions --%>
+<%!-- https://alembic.com.au/blog/improve-ux-with-liveview-page-transitions --%>
+<main
+  class="px-4 py-20 sm:px-6 lg:px-8 transition-all duration-[1000ms] opacity-0 -translate-x-16"
+  phx-mounted={JS.remove_class("opacity-0 -translate-x-16")}
+>
   <div class="mx-auto max-w-2xl">
     <.flash_group flash={@flash} />
     {@inner_content}

@@ -46,6 +46,9 @@ defmodule ShopWeb.Router do
     #   # resources "/posts", PostController
     #   get "/posts", PostController, :index
     # end
+
+    live "/products-live", ProductLive.Index
+    live "/products-live/:slug", ProductLive.Show
   end
 
   # Other scopes may use custom stacks.
