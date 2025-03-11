@@ -26,7 +26,8 @@ defmodule ShopWeb.ProductHTML do
   # Function component
   def product(assigns) do
     ~H"""
-    <p>-ID: {@product.id}</p>
+    <p>- ID: <span class="text-lime-300">{@product.id}</span></p>
+    <p>- Console: <span class="text-lime-300 capitalize">{@product.console}</span></p>
     <h1 class="text-xl font-extralight text-accent">
       This is the page for the product - Game:
       <span class="font-normal italic text-amber-700">{@product.name}</span>
